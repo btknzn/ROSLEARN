@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+
+<launch>
+
+  <!-- doc: rviz default launch config start -->
+
+  <node name="rviz_tas" pkg="rviz" type="rviz" args="-d $(find tas_sim)/launch/config/rviz/default.rviz"/>
+
+</launch>

@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<launch>
+  
+  <!-- doc Launches hardware, hector mapping and amcl, seperated because of necessary launch staging with gazebo -->
+
+  <include file="$(find tas_sim)/launch/hardware_16.launch"/>
+  
+  <include file="$(find tas_sim)/launch/odom.launch"/>
+  
+  <include file="$(find tas_sim)/launch/move_base_HW_params.launch"/>
+
+</launch>

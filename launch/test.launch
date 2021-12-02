@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<launch>
+  
+  <!-- doc Spawns the human models needed for dynamic tests and launches the dynamic test proceedure -->
+
+  <!-- Spawn the models -->
+  <node name="spawn_node_1" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen" args="-file $(find tas_sim)/gazebo/models/person_walking/model.sdf -sdf -x -9.5 -y 2.5 -Y 1.5707 -model person_walking_1"/>
+
+  <node name="spawn_node_2" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen" args="-file $(find tas_sim)/gazebo/models/person_walking/model.sdf -sdf -x -4.2 -y 6.9 -Y -1.5707 -model person_walking_2"/>
+
+  <node name="spawn_node_3" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen" args="-file $(find tas_sim)/gazebo/models/person_walking/model.sdf -sdf -x -8.8 -y 13.0 -Y -1.5707 -model person_walking_3"/>
+
+  <!-- Launch the test node -->
+  <node pkg="tas_sim" name="test_sim" type="test_sim.py" output="screen"/>
+
+</launch>

@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<launch>
+  <!-- doc Launch the N5 basement world in Gazebo, load the car and start the whole setup -->
+
+  <!-- Disable ros joint state publisher gui -->
+  <param name="use_gui" value="false"/>
+
+  <!-- Start the Gazebo simulation -->
+  <include file="$(find tas_sim)/launch/basement.launch"/>
+
+  <!-- Load the car with its arduino emulator node and spawn it in the simulation -->
+  <include file="$(find tas_sim)/launch/tas_car.launch"/>
+
+  <!--  Stage navigation launch until gazebo is up -->
+  <node pkg="tas_sim" name="ordered_launch" type="ordered_launch.py" output="screen">
+  <param name="navigation_type" value="tas_sim"/>
+  <param name="navigation_params" value="navigation_HW_params.launch"/>
+  </node>
+
+  <!-- Launch RVIZ for pose estimation and AMCL visualization -->
+  <include file="$(find tas_sim)/launch/rviz.launch"/>
+
+</launch>

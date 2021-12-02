@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<launch>
+
+  <!-- doc Opens a terminal controlled version of the car controller. Can only be used in autonomous mode! -->
+
+  <node pkg="tas_sim" name="WiiControllerSim" type="WiiControllerSim.py" output="screen"/>
+
+</launch>

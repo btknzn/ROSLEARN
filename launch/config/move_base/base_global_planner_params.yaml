@@ -1,0 +1,8 @@
+# Move base node parameters. For full documentation of the parameters in this file, please see
+#
+# http://wiki.ros.org/global_planner
+# http://wiki.ros.org/navigation/Tutorials/RobotSetup
+#
+visualize_potential: true
+use_dijkstra: true
+use_quadratic: true

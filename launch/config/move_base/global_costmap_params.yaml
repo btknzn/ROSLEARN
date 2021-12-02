@@ -1,0 +1,18 @@
+# Move base node parameters. For full documentation of the parameters in this file, please see
+#
+# http://wiki.ros.org/navigation/Tutorials/RobotSetup
+# http://wiki.ros.org/global_planner
+#
+global_costmap:
+  global_frame: map
+  robot_base_frame: base_link
+  map_type: costmap
+  update_frequency: 10.0
+  publish_frequency: 10.0
+  width: 50
+  height: 50
+  static_map: true
+  rolling_window: false
+  transform_tolerance: 0.2 
+  resolution: 0.05
+  inflation_radius: 0.7

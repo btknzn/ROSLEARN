@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+
+<launch>
+  <master auto="start"/>
+  <param name="/use_sim_time" value="true"/>
+
+  <!-- Original Move Base-->
+  <node pkg="move_base" type="move_base" respawn="false" name="move_base_node" output="screen">
+    <param name="base_global_planner" value="global_planner/GlobalPlanner"/>
+    <param name="base_local_planner" value="teb_local_planner/TebLocalPlannerROS"/> <!--change this value according to the planner used--> 
+    
+    <rosparam file="$(find tas_sim)/launch/config/move_base/costmap_common_params.yaml" command="load" ns="global_costmap" />
+    <rosparam file="$(find tas_sim)/launch/config/move_base/costmap_common_params.yaml" command="load" ns="local_costmap" />    
+    <rosparam file="$(find tas_sim)/launch/config/move_base/local_costmap_params.yaml" command="load" />    
+    <rosparam file="$(find tas_sim)/launch/config/move_base/global_costmap_params.yaml" command="load" />    
+    <rosparam file="$(find tas_sim)/launch/config/move_base/base_teb_local_planner_params.yaml" command="load" />
+    
+    <rosparam file="$(find tas_sim)/launch/config/move_base/base_dwa_local_planner_params.yaml" command="load" />
+    
+    
+    <!-- <rosparam file="$(find tas_sim)/launch/config/move_base/base_dwa_local_planner_params.yaml" command="load" /> -->
+    <!-- <rosparam file="$(find tas_sim)/launch/config/move_base/base_trajectory_local_planner_params.yaml" command="load" /> --> 
+    <rosparam file="$(find tas_sim)/launch/config/move_base/base_global_planner_params.yaml" command="load" />
+    </node>
+
+  <!-- Run trajectory control -->
+  <!--node pkg = "tas_autonomous_control" type="tas_autonomous_control_node" name="tas_autonomous_control_node" output="screen"/-->
+  
+    <!--node pkg="tas_control" type="tas_move_base_to_arduino.py" name="tas_move_base_to_arduino" output="screen"/-->
+
+  <!-- In case tas_autonomous_control node is missing, start ACNSim instead. Only launches if t_a_c_n node is not registered. -->
+  <node pkg="tas_sim" name="autonomous_node_sim" type="AutonomousNodeSim.py" output="screen"/>
+
+
+</launch>

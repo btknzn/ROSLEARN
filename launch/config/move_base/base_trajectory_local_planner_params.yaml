@@ -1,0 +1,13 @@
+min_in_place_vel_theta : 0.4
+holonomic_robot  : true
+escape_vel : -1
+meter_scoring : false
+occdist_scale : 0.01
+pdist_scale  : 0.6
+gdist_scale  : 0.8
+heading_lookahead : 0.325
+heading_scoring : false
+heading_scoring_timestep: 0.8
+dwa : true
+publish_cost_grid_pc  : false
+oscillation_reset_dist : 0.05

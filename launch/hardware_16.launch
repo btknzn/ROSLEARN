@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+
+<launch>
+
+  <!-- doc Launches the car hardware for the simulation -->
+  <master auto="start"/>
+  <param name="/use_sim_time" value="true"/>
+
+  <!-- Start the arduino emulator node -->
+  <include file="$(find tas_sim)/launch/ard_emul.launch"/>
+ 
+  <!-- Front laser gets started by default from Gazebo -->
+ 
+  <!-- Same for back laser -->
+
+  <!-- Start laser merger -->
+  <!--node pkg="ira_laser_tools" name="laserscan_multi_merger" type="laserscan_multi_merger" output="screen">
+                <param name="destination_frame" value="laser"/>
+                <param name="cloud_destination_topic" value="cloud_merged"/>
+                <param name="scan_destination_topic" value="scan_merged"/>
+
+                <param name="angle_min" value="-3.14"/>
+                <param name="angle_max" value="3.14"/>
+                <param name="range_max" value="100"/>
+
+                <param name="laserscan_topics" value ="/scan_front /scan_back" /-->   <!-- LIST OF THE LASER SCAN TOPICS TO SUBSCRIBE --> 
+        <!--</node>-->
+
+  <!--(Static) transformation for relation between wheel odometry frame and base_footprint frame -->
+  <!--node pkg="tf" type="static_transform_publisher" name="base_link_to_wheelodom" args="-0.195 0.0 0.045 0.0 0.0 0.0 /base_footprint /wheelodom 40" /-->
+
+  <!--node pkg="tf" type="static_transform_publisher" name="world_to_map" args="-0.0 0.0 0.0 0.0 0.0 0.0 /world /map 40" /-->
+<!--node pkg="tf" type="static_transform_publisher" name="base_link_to_camera" args="0.0 0.0 0.0 0.0 0.0 0.0 /odom /t265_odom_frame 40" /-->
+
+</launch>

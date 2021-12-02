@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<launch>
+
+  <!-- doc Launches the arduino emulator node. Takes the arduino topics and feeds them into the Gazebo simulation -->
+  <node pkg="tas_sim" name="ArduinoSim" type="ArduinoSim.py" output="screen"/>
+
+</launch>

@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<launch>
+
+  <!-- doc Launches the Gazebo Visualisation node. Takes the rviz amcl pose topics and transforms them for the Gazebo simulation -->
+  <node pkg="tas_sim" name="GazeboVis" type="GazeboVis.py" output="screen"/>
+
+</launch>
